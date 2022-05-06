@@ -1,0 +1,14 @@
+nav{
+    background-color: white;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    .logo-text{
+        color: #302f2f;
+        font-weight: 600;
+        transition: .3s ease-in-out;
+        &:hover{
+            text-decoration: underline;
+            color: rgb(67, 127, 255);
+        }
+    }
+}

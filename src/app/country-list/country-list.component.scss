@@ -1,0 +1,72 @@
+.country-list {
+  margin-top: 2rem;
+  .filters{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    input{
+      display: block;
+      flex-basis: 25rem;
+      padding: .4rem .8rem;
+      outline: none;
+      border: 1px solid rgb(177, 177, 177);
+      transition: .3s;
+      &:focus{
+        border-color: rgb(0, 132, 255);
+      }
+    }
+    select{
+      display: block;
+      padding: .4rem .8rem;
+      outline: none;
+      border: 1px solid rgb(177, 177, 177);
+      transition: .3s;
+      &:focus{
+        border-color: rgb(0, 132, 255);
+      }
+    }
+  }
+  .list-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+  .country-card {
+    background-color: white;
+    box-shadow: 2px 4px 5px rgb(219, 219, 219);
+    border-radius: 0.25rem;
+    a{
+      cursor: pointer;
+    }
+    a:hover .name {
+      color: rgb(14, 98, 255);
+      transition: 0.3s ease-in-out;
+      text-decoration: underline;
+    }
+    img {
+      width: 100%;
+      height: 10rem;
+      object-fit: cover;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+    .info {
+      padding: 1.5rem 2rem;
+      .name {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: rgb(32, 32, 32);
+      }
+      h5 {
+        margin-bottom: 0.35rem;
+        font-weight: normal;
+        color: rgb(19, 18, 18);
+        span {
+          font-weight: 500;
+          color: rgb(24, 24, 24);
+        }
+      }
+    }
+  }
+}

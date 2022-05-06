@@ -1,0 +1,49 @@
+<div class="container country-detail">
+  <figure class="country-image">
+    <img [src]="country?.flags?.png" alt="" />
+    <div class="title">
+      <h5 class="info">{{ country.region }}</h5>
+      <h1>{{ country.name?.official }}</h1>
+      <h5 class="info">Population of {{ country.population }}</h5>
+    </div>
+  </figure>
+  <div class="details">
+    <h3 class="title">Country Details</h3>
+    <div class="info">
+      <h4 class="key">Subregion:</h4>
+      <h4 class="value">{{ country?.subregion }}</h4>
+    </div>
+    <div class="info">
+      <h4 class="key">Common Name:</h4>
+      <h4 class="value">{{ country?.name?.common }}</h4>
+    </div>
+    <div class="info">
+      <h4 class="key">Capital:</h4>
+      <h4 class="value">{{ country?.capital.join(', ') }}</h4>
+    </div>
+    <div class="info">
+      <h4 class="key">Currencies:</h4>
+      <h4 class="value">{{ currencies }}</h4>
+    </div>
+    <div class="info">
+      <h4 class="key">Independent:</h4>
+      <h4 class="value">{{ country?.independent ? "Yes" : "No" }}</h4>
+    </div>
+    <div class="info">
+      <h4 class="key">Languages:</h4>
+      <h4 class="value">{{ languages }}</h4>
+    </div>
+    <div class="info">
+      <h4 class="key">Flag:</h4>
+      <h4 class="value">{{ country?.flag }}</h4>
+    </div>
+    <div class="info">
+      <h4 class="key">Coat Of Arms:</h4>
+      <img [src]="country?.coatOfArms?.png" alt="" />
+    </div>
+    <div class="info">
+      <h4 class="key">Timezone:</h4>
+      <h4 class="value">{{ country?.timezones[0] }}</h4>
+    </div>
+  </div>
+</div>
