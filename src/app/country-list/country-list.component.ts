@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { combineLatest, map, Observable, startWith } from 'rxjs';
 import { CountryListService } from './country-list.service';
 
@@ -16,10 +17,10 @@ export class CountryListComponent {
   filter$: Observable<string>;
   filter: FormControl = new FormControl('');
 
-  constructor(private countryListService: CountryListService) {
+  constructor(private store: Store<{ countryList: any[] }>) {
     this.search$ = this.search.valueChanges.pipe(startWith(''));
     this.filter$ = this.filter.valueChanges.pipe(startWith(''));
-    this.countries = this.countryListService.getCountries();
+    this.countries = this.store.select((state) => state.countryList);
 
     this.filterCountries$ = combineLatest([
       this.countries,
