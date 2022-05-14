@@ -1,42 +1,65 @@
 .country-list {
   margin-top: 2rem;
-  .filters{
+  .visited-countries {
+    margin-bottom: 4rem;
+    h4 {
+      padding-bottom: 1rem;
+    }
+    .list {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+  .filters {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
-    input{
+    input {
       display: block;
       flex-basis: 25rem;
-      padding: .4rem .8rem;
+      padding: 0.4rem 0.8rem;
       outline: none;
       border: 1px solid rgb(177, 177, 177);
-      transition: .3s;
-      &:focus{
+      transition: 0.3s;
+      &:focus {
         border-color: rgb(0, 132, 255);
       }
     }
-    select{
+    select {
       display: block;
-      padding: .4rem .8rem;
+      padding: 0.4rem 0.8rem;
       outline: none;
       border: 1px solid rgb(177, 177, 177);
-      transition: .3s;
-      &:focus{
+      transition: 0.3s;
+      &:focus {
         border-color: rgb(0, 132, 255);
       }
     }
   }
   .list-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    @media (min-width: 991px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    @media (min-width: 1480px) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4rem;
+    }
   }
   .country-card {
     background-color: white;
     box-shadow: 2px 4px 5px rgb(219, 219, 219);
     border-radius: 0.25rem;
-    a{
+    a {
       cursor: pointer;
     }
     a:hover .name {

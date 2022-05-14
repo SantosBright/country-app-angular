@@ -11,6 +11,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CountryDetailComponent } from './country-list/country-detail/country-detail.component';
 import { countryListReducer } from './store/reducers/country-list.reducer';
 import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { CountryListEffects } from './store/effects/country-list.effects';
+import { visitedCountriesReducer } from './store/reducers/visited-countries.reducer';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,16 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ countryList: countryListReducer }),
+    StoreModule.forRoot({
+      countryList: countryListReducer,
+      visitedCountries: visitedCountriesReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
       autoPause: true,
     }),
+    EffectsModule.forRoot([CountryListEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

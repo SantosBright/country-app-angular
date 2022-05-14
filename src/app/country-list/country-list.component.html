@@ -1,5 +1,27 @@
 <div class="country-list">
   <div class="container list-main">
+    <div class="visited-countries">
+      <h4>Visited Countries</h4>
+      <div class="list">
+        <div
+          *ngFor="let country of visitedCountries$ | async"
+          class="country-card"
+          style="min-width: 20rem; margin-right: 1rem"
+        >
+          <a [routerLink]="'/country/' + country.numericCode">
+            <figure>
+              <img [attr.src]="country?.flags?.png" alt="" />
+            </figure>
+            <div class="info">
+              <h4 class="name">{{ country.name }}</h4>
+              <h5><span>Population: </span>{{ country.population }}</h5>
+              <h5><span>Region: </span>{{ country.region }}</h5>
+              <h5><span>Capital: </span>{{ country.capital }}</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="filters">
       <input
         type="text"
@@ -11,7 +33,10 @@
           <option value="">All</option>
           <option value="Europe">Europe</option>
           <option value="Africa">Africa</option>
-          <option value=""></option>
+          <option value="Asia">Asia</option>
+          <option value="Americas">Americas</option>
+          <option value="Oceania">Oceania</option>
+          <option value="Polar">Polar</option>
         </select>
       </div>
     </div>
@@ -20,7 +45,10 @@
         *ngFor="let country of filterCountries$ | async"
         class="country-card"
       >
-        <a [routerLink]="'/country/' + country.numericCode">
+        <a
+          [routerLink]="'/country/' + country.numericCode"
+          (click)="addVisitedCountry(country)"
+        >
           <figure>
             <img [attr.src]="country?.flags?.png" alt="" />
           </figure>
